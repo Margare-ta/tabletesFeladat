@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import 'bootstrap/dist/css/bootstrap.css';
 
 interface Tablet {
     Id: number;
@@ -14,7 +15,7 @@ export default function TabletLista() {
     const [tablets, setTablets] = useState<Tablet[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    
+
     useEffect(() => {
 
         fetch('http://localhost:3000/tablets')
@@ -49,15 +50,31 @@ export default function TabletLista() {
     return <>
         <div>
             <h2>Tabletek</h2>
-            
-            <ul>
-                {tablets.map((tablet) => (
-                    <li key={tablet.Id}>
-                        {tablet.name} {tablet.year} - {tablet.price} Ft - {tablet.ramSize} GB- {tablet.cpucores} Mag
-                        
-                    </li>
-                ))}
-            </ul>
+
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Ram GB</th>
+                        <th scope="col">CPU's core number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tablets.map((tablet) => (
+                        <tr>
+                            <th>{tablet.Id}</th>
+                            <td>{tablet.name}</td>
+                            <td>{tablet.year}</td>
+                            <td>{tablet.price}</td>
+                            <td>{tablet.ramSize}</td>
+                            <td>{tablet.cpucores}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     </>
 }
