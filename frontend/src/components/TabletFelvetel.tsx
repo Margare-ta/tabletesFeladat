@@ -22,11 +22,11 @@ export default function TabletFelvetel() {
             const response = await fetch('http://localhost:3000/tablets', {
                 method: 'POST',
                 headers: {
-                     'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(newTablet)
             })
-            if (!response.ok){
+            if (!response.ok) {
                 const errorData = await response.json();
                 setError(errorData.error)
                 throw new Error(`Hiba történt: ${response.status}`)
@@ -45,57 +45,59 @@ export default function TabletFelvetel() {
         }
     }
     return <>
+
         <h2>Tablet felvétel</h2>
-        
+
         <form onSubmit={handleSubmit}>
-            <label>
+            <label className="ps-3">
                 <p>Name:</p>
                 <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-              
+
             </label>
-            <label>
+            <label className="p-1">
                 <p>Year:</p>
                 <input
                     type="number"
                     value={year}
-                    onChange={(e) => setYear(parseInt(e.target.value)) }
+                    onChange={(e) => setYear(parseInt(e.target.value))}
                 />
-                
+
             </label>
-            <label>
+            <label className="p-1">
                 <p>Price:</p>
                 <input
                     type="text"
                     value={price}
                     onChange={(e) => setPrice(parseInt(e.target.value))}
                 />
-               
+
             </label>
-            <label>
+            <label className="p-1">
                 <p>Size of RAM:</p>
                 <input
                     type="number"
                     value={ramSize}
                     onChange={(e) => setRamSize(parseInt(e.target.value))}
                 />
-               
+
             </label>
-            <label>
+            <label className="pe-3">
                 <p>CPU core number:</p>
                 <input
                     type="number"
                     value={cpucores}
                     onChange={(e) => setCpucores(parseInt(e.target.value))}
                 />
-               
+
             </label>
-            <button type="submit">Tablet felvétele</button>
-            { error && <p>{ error }</p> }
-            {success && <p>Sikeresen megtörtént a tablet felvétele.</p> }
+            <button type="submit" className="btn btn-info">Tablet felvétele</button>
+            {error && <p>{error}</p>}
+            {success && <p>Sikeresen megtörtént a tablet felvétele.</p>}
         </form>
+
     </>
 }

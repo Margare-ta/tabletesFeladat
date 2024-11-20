@@ -13,10 +13,6 @@ const router = createBrowserRouter([
     element: <TabletLista />,
   },
   {
-    path: "/tabletek",
-    element: <TabletLista />,
-  },  
-  {
     path: "/kezdolap",
     element: <Kezdolap />,
   },

@@ -35,16 +35,16 @@ app.post('/tablets', async (req, res) => {
         if (tablet[0].length < 1) {
             return res.status(400).json({ error: "Tablet's name must have at least 1 character" });
         }
-        if (isNaN(tablet[1]) || parseInt(tablet[1]) < 1) {
+        if (parseInt(tablet[1]) < 1) {
             return res.status(400).json({ error: "Tablet's price must be greater than 0" });
         }
-        if (isNaN(tablet[2]) || parseInt(tablet[2]) < 2001) {
+        if (parseInt(tablet[2]) < 2001) {
             return res.status(400).json({ error: "Tablet's publication's year must be over 2001" });
         }
-        if (isNaN(tablet[3]) || parseInt(tablet[3]) > 16 || parseInt(tablet[3]) < 2){
+        if (parseInt(tablet[3]) > 16 || parseInt(tablet[3]) < 2){
             return res.status(400).json({ error: "The RAM must be at least 2 and lower then 16"})
         }
-        if (isNaN(tablet[4]) || parseInt(tablet[4]) > 16 || parseInt(tablet[4]) < 2){
+        if (parseInt(tablet[4]) > 16 || parseInt(tablet[4]) < 2){
             return res.status(400).json({ error: "The CPU cores's number must be at least 1 and lower then 16"})
         }
 
