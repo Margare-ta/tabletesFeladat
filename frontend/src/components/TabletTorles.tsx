@@ -98,6 +98,10 @@ export default function TabletLista() {
         <div className="p-4">
             <h2>Tabletek</h2>
 
+            <button className="btn btn-dark me-3"><a href="/kezdolap">Kezdőlap</a></button>
+            <button className="btn btn-dark"><a href="/tabletek-felvetel">Tablet felvétele</a></button>
+            <button className="btn btn-dark ms-3"><a href="/tabletek-lista">Tabletek listája</a></button>
+
             <div className="mb-3">
                 <input
                     type="text"
